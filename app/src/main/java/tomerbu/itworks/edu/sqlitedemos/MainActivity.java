@@ -63,10 +63,20 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.fab)
     public void onClick() {
         insertNotes();
-        showAllNotes();
+
     }
 
-    private void showAllNotes() {
+    private void insertNotes() {
+        NotesDbHelper helper = new NotesDbHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        ContentValues data = new ContentValues();
+            data.put("title", "Title " );
+            data.put("content", "Loerm Ipsum ");
+            data.put("userId", 1);
+        db.insert("Notes", null, data);
+    }
+
+    private void showAllUsers() {
         NotesDbHelper helper = new NotesDbHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
         Cursor cursor = db.query("User", null, null, null, null, null, null);
@@ -82,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void insertNotes() {
+    private void insertUsers() {
         NotesDbHelper helper = new NotesDbHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
 
