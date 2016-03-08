@@ -32,6 +32,15 @@ public class NotesRecyclerFragment extends Fragment {
         // Required empty public constructor
     }
 
+    public static NotesRecyclerFragment getInstance(String json){
+        Bundle b = new Bundle();
+        b.putString("json", json);
+
+        NotesRecyclerFragment notesRecyclerFragment = new NotesRecyclerFragment();
+        notesRecyclerFragment.setArguments(b);
+        return notesRecyclerFragment;
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

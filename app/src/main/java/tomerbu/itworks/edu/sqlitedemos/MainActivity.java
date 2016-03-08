@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
                 beginTransaction().
                 add(R.id.fragment_layout, new NotesRecyclerFragment()).
                 commit();
+/*
+        getSupportFragmentManager().
+                beginTransaction().
+                add(R.id.fragment_layout, NotesRecyclerFragment().getInstance("YnetJsonFromServer")).
+                commit();*/
     }
 
     @Override
